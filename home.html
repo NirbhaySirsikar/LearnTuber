@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="home.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto Sans:wght@500;600&display=swap"
+    />
+  </head>
+  <body>
+    <div class="desktop-1">
+      <div class="desktop-1-child"></div>
+      <div class="learntuber-parent">
+        <div class="learntuber1">
+          <span>Learn</span><span class="tuber1">Tuber</span>
+        </div>
+        <div class="ai-powered-transcriber">
+          AI Powered Transcriber , Summarization , Quiz Generator
+        </div>
+      </div>
+      <div class="learntuber-container">
+        <div class="learntuber2">
+          <span>Learn</span><span class="tuber1">Tuber</span>
+        </div>
+      </div>
+      <div class="frame-parent">
+        <input
+          class="frame-input"
+          type="text"
+          placeholder="Enter Video URL"
+        /><button class="summarize-wrapper">
+          <div class="summarize">Summarize</div>
+        </button>
+      </div>
+      <button class="generate-quiz-wrapper" id="frameButton1">
+        <div class="generate-quiz">Generate Quiz</div>
+      </button>
+      <textarea class="desktop-1-item"></textarea>
+    </div>
+
+    <script>
+      var frameButton1 = document.getElementById("frameButton1");
+      if (frameButton1) {
+        frameButton1.addEventListener("click", function (e) {
+          window.location.href = "quiz.html";
+        });
+      }
+      </script>
+  </body>
+</html>
