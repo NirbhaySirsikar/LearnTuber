@@ -8,8 +8,9 @@ body {
     left: 0;
     background-color: var(--color-white);
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.25);
-    width: 1920px;
-    height: 85px;
+
+    width: auto;
+  
     overflow: hidden;
   }
   .tuber1 {
@@ -18,7 +19,6 @@ body {
   .ai-powered-transcriber,
   .learntuber1 {
     position: absolute;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
   .learntuber1 {
     top: 18px;
@@ -70,10 +70,10 @@ body {
     background-color: var(--color-white);
     top: 21px;
     left: 58px;
-    border-radius: var(--br-md);
+    border-radius: 10px;
     box-shadow: 0 14px 10px rgba(0, 0, 0, 0.25);
     width: 834px;
-    height: 100px;
+    height: 80px;
     overflow: hidden;
     mix-blend-mode: normal;
   }
@@ -108,6 +108,7 @@ body {
     box-shadow: 0 14px 10px rgba(0, 0, 0, 0.25);
     width: 950px;
     height: 260px;
+    border-radius: 20px;
   }
   .generate-quiz {
     position: absolute;
@@ -124,25 +125,30 @@ body {
     position: absolute;
     border-radius: var(--br-md);
     overflow: hidden;
+    margin-right: 50px;
   }
   .generate-quiz-wrapper {
     cursor: pointer;
     border: 0;
     padding: 0;
     background-color: var(--color-royalblue);
-    top: 972px;
+    top: 900px;
     left: 1565px;
     box-shadow: 0 13px 10px rgba(0, 0, 0, 0.25);
     width: 300px;
     height: 84px;
   }
   .desktop-1-item {
-    top: 641px;
+    top: 600px;
     left: 485px;
     background-color: var(--color-gainsboro);
     box-shadow: 0 18px 10px rgba(0, 0, 0, 0.25);
     width: 950px;
-    height: 415px;
+    height: 350px;
+    font-size: 35px;
+    overflow-y: scroll;
+    border-radius: 20px;
+    border: 2px #727cf7;
   }
   .desktop-1 {
     position: relative;
@@ -155,6 +161,11 @@ body {
     color: var(--color-gray-100);
     font-family: var(--font-noto-sans);
   }
+
+img .logo{
+  margin-top: 10px;
+}
+
   :root {
     /* fonts */
     --font-noto-sans: "Noto Sans";
