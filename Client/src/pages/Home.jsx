@@ -4,7 +4,7 @@ import React ,{useEffect, useState} from 'react';
 export default function App() {
 
     const [message, setMessage] = useState('');
-    const [data, setData] = useState({mess:''});
+    const [data, setData] = useState();
     const handleMessageChage= (e) => {
         setMessage(e.target.value)
     }
@@ -22,7 +22,7 @@ export default function App() {
         });
 
         const res = await response.json();
-        console.log(res)
+        setData(res)
       }
 
     
@@ -50,33 +50,38 @@ export default function App() {
                 AI Powered Transcriber, Summarization ,Quiz Generator
             </div>
 
-            <div className="flex justify-center items-center pt-2 ">
-                <div className="w-full max-w-md px-4 py-6 bg-slate-300 shadow-md rounded-md">
-                    
-                    
-                <form onSubmit={handleSubmit}>
-                    <div className="flex items-center">
+                        <div className="flex justify-center items-center pt-2 ">
+                            <div className="w-full max-w-md px-4 py-6 bg-slate-300 shadow-md rounded-md">  
+                                <form onSubmit={handleSubmit}>
+                                    <div className="flex items-center">
+                                        <input
+                                        type='text'
+                                        value={message}
+                                        onChange={handleMessageChage}
+                                        className="rounded-md bg-gray-100 py-2 px-4 w-full "
+                                        />
+                                    </div>
+                                    <div className="flex justify-center pt-4">
+                                        <button className="text-center bg-indigo-500 w-28 h-10 text-white rounded "
+                                                type='submit'>
+                                            Summarize
+                                        </button>
+                                    </div>
+                                </form>
+                                
+                            </div>
 
-                        <input
-                        type='text'
-                        value={message}
-                        onChange={handleMessageChage}
-                        className="rounded-md bg-gray-100 py-2 px-4 w-full "
-                        />
-                    </div>
-                    <div className="flex justify-center pt-4">
-                        <button className="text-center bg-indigo-500 w-28 h-10 text-white rounded "
-                                type='submit'>
-                            Summarize
-                        </button>
-
-                        <div> {data.mess}</div>
                         
-                    </div>
-                 </form>
                 
-                </div>
-                </div>
+                         </div>
+
+                         <div className="flex justify-center items-center pt-2 ">
+                            <div className="w-full max-w-md px-4 py-6 bg-slate-300 shadow-md rounded-md h-44">  
+                                <div>{data}</div>
+                            </div>
+                         </div>
+
+                
            </div>
       
     )
