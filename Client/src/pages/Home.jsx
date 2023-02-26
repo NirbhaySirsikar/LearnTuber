@@ -12,7 +12,7 @@ export default function App() {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        const response = await fetch('http://localhost:3000/api/messages', {
+        const response = await fetch('https://learntuber.onrender.com/api/messages', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
