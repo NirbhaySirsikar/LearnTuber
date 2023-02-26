@@ -8,8 +8,9 @@ body {
     left: 0;
     background-color: var(--color-white);
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.25);
+
     width: auto;
-   
+  
     overflow: hidden;
   }
   .tuber1 {
@@ -18,7 +19,6 @@ body {
   .ai-powered-transcriber,
   .learntuber1 {
     position: absolute;
-    
   }
   .learntuber1 {
     top: 18px;
@@ -119,7 +119,6 @@ body {
     font-family: var(--font-noto-sans);
     color: var(--color-white);
     text-align: left;
-    
   }
   .desktop-1-item,
   .generate-quiz-wrapper {
@@ -167,7 +166,6 @@ img .logo{
   margin-top: 10px;
 }
 
-  
   :root {
     /* fonts */
     --font-noto-sans: "Noto Sans";
