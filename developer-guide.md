@@ -32,7 +32,13 @@ Add YouTube URL (recommended to choose a short video to decrease processing time
 
 The requested output would be available on the webpage as well as server terminal would have requested URL, converted audio URL, transcribed text, summarized text and quiz in proper format.
 
+
+## Possible errors
+
+We are using free plan for API services so bellow are some possible errors as well as their fix:
+
 In case of errors like "unauthorized API key" in server side terminal. Replace value of OPENAI_API_KEY variable in server/index.js line:20 with your openAI API key.
 Visit [this link](https://platform.openai.com/account/api-keys) to create your own OpenAI API key.
 
+If you get any errors in Api_key variable (assemblyAI API error) then visit [this link](https://www.assemblyai.com/app/account) and get your own API key from AssemblyAI and replace value of Api_key in server/index.js line:12 with your API key. 
 
