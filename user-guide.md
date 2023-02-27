@@ -25,7 +25,7 @@ Run "npm run dev" on client side terminal.
 
 ## Step 6
 
-Go to the link provided on the client side terminal to access client side page.
+Visit http://127.0.0.1:5173/ to open client side page.
 
 ## Step 7
 
