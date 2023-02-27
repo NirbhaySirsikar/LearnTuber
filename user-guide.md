@@ -1,6 +1,6 @@
 # LearnTuber User Guide
 
-As per 27 Feb 2023 the website is not deployed becasue of server side limitations but in future we looking to update it and deploy the complete web app.
+As per 27 Feb 2023 the website is not deployed becasue of server side limitations but in future we are looking to update it and deploy the complete web app.
 As if now please host client and server it on your system.
 
 ## Step 1
