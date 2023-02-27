@@ -4,7 +4,7 @@ import React ,{useEffect, useState} from 'react';
 export default function App() {
 
     const [message, setMessage] = useState('');
-    const [data, setData] = useState();
+    const [data, setData] = useState(null);
     const handleMessageChage= (e) => {
         setMessage(e.target.value)
     }
@@ -12,19 +12,21 @@ export default function App() {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        const response = await fetch('https://learntuber.onrender.com/api/messages', {
+        const response = await fetch('http://localhost:3000/api/messages', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({ 
             message })
-        });
+        }).then(response => response.json())
+          .then(data => setData(data))
 
-        const res = await response.json();
+        const res= await response.json();
         setData(res)
       }
 
+      
     
 
       
@@ -75,11 +77,7 @@ export default function App() {
                 
                          </div>
 
-                         <div className="flex justify-center items-center pt-2 ">
-                            <div className="w-full max-w-md px-4 py-6 bg-slate-300 shadow-md rounded-md h-44">  
-                                <div>{data}</div>
-                            </div>
-                         </div>
+                        <p> {data ? (<p>{data}</p>) : (<p>loading...</p>) }</p>
 
                 
            </div>
