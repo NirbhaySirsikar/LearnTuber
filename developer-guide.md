@@ -33,6 +33,6 @@ Add YouTube URL (recommended to choose a short video to decrease processing time
 The requested output would be available on the webpage as well as server terminal would have requested URL, converted audio URL, transcribed text, summarized text and quiz in proper format.
 
 In case of errors like "unauthorized API key" in server side terminal. Replace value of OPENAI_API_KEY variable in server/index.js line:20 with your openAI API key.
-Visit [this link](https://platform.openai.com/account/api-keys) to craete your own OpenAI API key.
+Visit [this link](https://platform.openai.com/account/api-keys) to create your own OpenAI API key.
 
 
