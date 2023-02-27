@@ -17,7 +17,7 @@ const assemblyai = require('assemblyai');
 assemblyai.setAPIKey(Api_key)
 
 const { Configuration, OpenAIApi } = require('openai');
-const OPENAI_API_KEY = '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'
+const OPENAI_API_KEY = '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'
 const configuration = new Configuration({
   apiKey:OPENAI_API_KEY,
 })
@@ -70,7 +70,7 @@ app.post('/api/messages', async(req, res) => {
   
   const quiz  = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `Please make quiz of atleast three questions from this text, give me four options for each and don't tell me the answers, Also give me a new line character (\n) after each new line:"${datasend}`,
+    prompt: `Please make quiz of atleast three questions from this text, give me four options for each and don't tell me the answers:"${datasend}"`,
     temperature:0,
     max_tokens: 600,
 
@@ -78,7 +78,7 @@ app.post('/api/messages', async(req, res) => {
 
   const quizdata = quiz.data.choices[0].text;
   console.log(quizdata)
-  res.json(`\n${senddata} + \n ${quizdata}`)
+  res.json(`\n${senddata}  ${quizdata}`)
 
 });
 

@@ -77,7 +77,7 @@ export default function App() {
                 
                          </div>
 
-                        <p> {data ? (<p>{data}</p>) : (<p>loading...</p>) }</p>
+                        <p> {data ? (<p>{data}</p>) : (<p><br/><br/><br/>This app is just a prototype so please test it with smaller videos. It might take more than few minute to give an output so be patient.</p>) }</p>
 
                 
            </div>
