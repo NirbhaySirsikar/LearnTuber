@@ -13,7 +13,7 @@ Locate the local repo and run two terminals in client and server directory of th
 
 ## Step 3
 
-Run "npm install" on both server and client terminal.
+Run "npm install" on both server and client terminal. ( Make sure you have Node.js installed in your system for the following command to run)
 
 ## Step 4
 
