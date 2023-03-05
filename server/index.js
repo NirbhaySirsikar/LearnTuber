@@ -9,7 +9,7 @@ const express = require('express')
 const app = express();
 const port = 3000;
 
-const Api_key = 'b71850161eef473fb0e2c7a1b5a70722'; //replace this Api_key with you AssemblyAI api key
+const Api_key = ''; //replace value of Api_key with you AssemblyAI api key
 
 const { text } = require('body-parser');
 const { response } = require('express');
@@ -17,7 +17,7 @@ const assemblyai = require('assemblyai');
 assemblyai.setAPIKey(Api_key)
 
 const { Configuration, OpenAIApi } = require('openai');
-const OPENAI_API_KEY = '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' //Incase of incorrect API key error replace OPEN_API_KEY with your API key
+const OPENAI_API_KEY = '' //rplace OPEN_API_KEY with your API key
 const configuration = new Configuration({
   apiKey: OPENAI_API_KEY,
 })
