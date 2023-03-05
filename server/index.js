@@ -17,7 +17,7 @@ const assemblyai = require('assemblyai');
 assemblyai.setAPIKey(Api_key)
 
 const { Configuration, OpenAIApi } = require('openai');
-const OPENAI_API_KEY = '' //rplace OPEN_API_KEY with your API key
+const OPENAI_API_KEY = '' //rplace OPEN_API_KEY with your OpenAI API key
 const configuration = new Configuration({
   apiKey: OPENAI_API_KEY,
 })
