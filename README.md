@@ -3,5 +3,7 @@ A web app which can convert your free YouTube course video into summarized notes
 
 # Demo
 
-https://github.com/NirbhaySirsikar/LearnTuber/assets/108933885/67482cf1-e061-4ebe-9c50-e641bb0ad80c
+https://github.com/NirbhaySirsikar/LearnTuber/assets/108933885/b8cc7c4c-b721-4c77-bec4-46b81c132af1
+
+
 
