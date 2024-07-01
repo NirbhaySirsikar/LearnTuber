@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { cn } from "@/utils/cn";
 import { Button } from './button';
 
-export const GradientButton = ({ className, onClick }) => {
+export const GradientButton = ({ className, onClick }: { className: string, onClick: () => void }) => {
   const variants = {
     initial: {
       backgroundPosition: "0 50%",

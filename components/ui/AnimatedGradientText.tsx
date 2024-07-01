@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from "@/utils/cn";
 
-export const AnimatedGradientText = ({ children, className }) => {
+export const AnimatedGradientText = ({ children, className }: { children: ReactNode, className: string }) => {
   const variants = {
     initial: {
       backgroundPosition: "0 50%",
