@@ -22,7 +22,7 @@ export function Landing() {
           Enter the <b>YouTube URL</b> and let AI generate a consise <b>Summary</b> and <b>Quiz</b>
         </p>
         <div className="py-8"></div>
-        <BackgroundGradient className="rounded-[22px] max-w-lg p-4 sm:p-10 bg-white dark:bg-zinc-900">
+        <BackgroundGradient className="rounded-[22px] max-w-lg p-4 sm:p-10  bg-zinc-900">
           <div className="max-w-md w-full space-y-4 px-2">
             <div className="flex items-center space-x-8">
               <Input
@@ -31,8 +31,8 @@ export function Landing() {
                 className="flex-1 bg-neutral-950 placeholder:text-neutral-400 border-none focus:ring-2 focus:ring-primary"
                 onChange={(e) => setUrl(e.target.value)}
               />
-              <BackgroundGradient containerClassName="rounded-md" className="rounded-[22px] max-w-lg bg-white dark:bg-zinc-900 hover:bg-black hover:bg-opacity-10">
-                <Button className="bg-transparent text-primary-foreground px-6 py-2 rounded-[22px] hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-primary"
+              <BackgroundGradient containerClassName="rounded-md" className="rounded-[22px] max-w-lg  bg-zinc-900 hover:bg-black hover:bg-opacity-10">
+                <Button className="bg-transparent  text-white px-6 py-2 rounded-[22px] hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-primary"
                   onClick={() => {
                     var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
                     if (url.match(p)) {
@@ -51,7 +51,7 @@ export function Landing() {
           <MovingBorderButton
             borderRadius="1.75rem"
             containerClassName="flex flex-col items-center"
-            className="flex space-x-1 items-center bg-white dark:bg-zinc-800 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+            className="flex space-x-1 items-center  bg-zinc-800  text-white  border-slate-800"
             onClick={() => { router.push('output?url=https://www.youtube.com/watch?v=Tn6-PIqc4UM') }}
           >
             <p className="text-neutral-400 text-center relative z-10">

@@ -73,7 +73,7 @@ export default function Component({ questions }: { questions: quizQuestion[] }) 
       )}
       {currentQuestion === questions.length && (
         <div className="mt-4 flex justify-end">
-          <BackgroundGradient containerClassName="rounded-md" className="rounded-[22px] max-w-lg bg-white dark:bg-zinc-900 hover:bg-black hover:bg-opacity-10">
+          <BackgroundGradient containerClassName="rounded-md" className="rounded-[22px] max-w-lg  bg-zinc-900 hover:bg-black hover:bg-opacity-10">
             <Button className="bg-transparent text-primary-foreground px-6 py-2 rounded-[22px] hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-primary"
               onClick={() => { setCurrentQuestion(0) }}>Restart</Button>
           </BackgroundGradient>
