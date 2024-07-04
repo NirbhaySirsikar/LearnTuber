@@ -13,9 +13,7 @@ export default function OutputPage() {
 
   if (matchYoutubeUrl(youtube_url ?? "")) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-[#1a1b1e] text-white">
-        <Output url={youtube_url ?? ""} />
-      </div>
+      <Output url={youtube_url ?? ""} />
     )
   } else {
     router.replace("/");

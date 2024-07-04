@@ -9,7 +9,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { BackgroundGradient } from "./background-gradient"
 
-interface quizQuestion {
+export interface quizQuestion {
   question: string;
   options: string[];
   answer: string;
@@ -48,7 +48,6 @@ export default function Component({ questions }: { questions: quizQuestion[] }) 
     }
   }
   return (
-    // <div className="bg-background p-8 rounded-md shadow-md">
     <div>
       {currentQuestion < questions.length ? (
         <>
@@ -59,6 +58,7 @@ export default function Component({ questions }: { questions: quizQuestion[] }) 
                 key={option}
                 variant={selectedOption === option ? (isCorrect ? "default" : "destructive") : "outline"}
                 onClick={() => handleOptionSelect(option)}
+                className="w-full justify-center text-center py-3 px-4 h-auto min-h-[44px]"
               >
                 {option}
               </Button>
