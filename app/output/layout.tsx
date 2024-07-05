@@ -6,7 +6,9 @@ import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function Layout({ children }) {
+export default function Layout({ children }: Readonly<{
+  children: React.ReactNode;
+}>) {
   const [url, setUrl] = useState("")
   const router = useRouter();
   return <div>
