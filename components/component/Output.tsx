@@ -113,7 +113,7 @@ export async function Output({ url }: { url: string }) {
 
   return (
     <div className="w-full min-h-screen text-white">
-      <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-5 lg:gap-8 lg:p-12 p-4">
+      <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-5 lg:gap-8 lg:px-12 lg:pb-12 p-4">
         <div className="col-span-3 space-y-4">
           <div>
             <BackgroundGradient>
