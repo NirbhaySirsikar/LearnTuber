@@ -13,9 +13,11 @@ export default function Layout({ children }: Readonly<{
   const router = useRouter();
   return <div>
     <div className="flex items-center justify-between relative z-100 px-4 py-2">
-      <h1 className="relative z-10 text-xl md:text-2xl font-sans font-bold ">
-        <AnimatedGradientText className={""}>LearnTuber</AnimatedGradientText>
-      </h1>
+      <a href="https://learntuber.vercel.app">
+        <h1 className="relative z-10 text-xl md:text-2xl font-sans font-bold cursor-pointer">
+          <AnimatedGradientText className={""}>LearnTuber</AnimatedGradientText>
+        </h1>
+      </a>
       <div className="flex items-center space-x-4 w-[50%] max-md:hidden">
         <Input
           type="text"
