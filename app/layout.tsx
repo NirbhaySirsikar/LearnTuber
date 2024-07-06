@@ -9,8 +9,40 @@ const fontSans = FontSans({
 })
 
 export const metadata: Metadata = {
-  title: "LearnTuber",
+  title: {
+    default: "LearnTuber",
+    template: "%s | LearnTuber"
+  },
   description: "AI-powered YouTube video Summarizer and Quiz generator",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://learntuber.vercel.app",
+    siteName: "LearnTuber",
+    title: "LearnTuber",
+    description: "AI-powered YouTube video Summarizer and Quiz generator",
+    images: [
+      {
+        url: "https://learntuber.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "LearnTuber - AI-powered YouTube video Summarizer and Quiz generator",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LearnTuber - AI-powered YouTube Learning",
+    description: "Transform your YouTube watching into an interactive learning experience with AI-powered summaries and quizzes.",
+    images: ["https://learntuber.vercel.app/og-image.png"],
+    creator: "@NirbhaySirsikar",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
