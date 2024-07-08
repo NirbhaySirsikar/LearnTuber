@@ -1,0 +1,18 @@
+{
+  "name": "whisper",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "login": "wrangler login"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.14.1",
+    "base64-js": "^1.5.1",
+    "hono": "^4.4.9",
+    "youtube-transcript": "^1.2.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "wrangler": "^3.57.2"
+  }
+}
