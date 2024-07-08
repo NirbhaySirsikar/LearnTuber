@@ -1,4 +1,3 @@
-"use state";
 import YoutubeEmbed from "../ui/YoutubeEmbed";
 import { BackgroundGradient } from "../ui/background-gradient";
 import QuizModal, { quizQuestion } from "../ui/QuizModal";
@@ -23,92 +22,83 @@ export async function Output({ url }: { url: string }) {
 
   useEffect(() => {
     if (!loading) return;
-    const fetchData = async () => {
-      if (url == 'https://www.youtube.com/watch?v=Tn6-PIqc4UM') {
-        setSummary("React is a JavaScript library for building user interfaces that was developed at Facebook and released in 2013. It's a simple and easy-to-use library that allows developers to build components that represent logical reusable parts of the UI. React uses a special syntax called JSX to combine JavaScript with HTML markup, and provides a variety of hooks to handle common use cases. The library doesn't care about routing, state management, animation, or other concerns, instead letting the open-source community evolve them naturally. React is a popular choice among front-end developers due to its ease of use and the vast ecosystem of supporting libraries. Knowing React is one of the most in-demand skills for front-end developers today.");
-        setQuiz(
-          [
-            {
-              "question": "What is React?",
-              "options": [
-                "A JavaScript library for building user interfaces",
-                "A framework for building web applications",
-                "A tool for creating mobile apps",
-                "A library for building desktop applications"
-              ],
-              "answer": "A JavaScript library for building user interfaces"
-            },
-            {
-              "question": "What is the main advantage of using React?",
-              "options": [
-                "It's easy to use",
-                "It's fast and efficient",
-                "It's highly customizable",
-                "It's widely adopted by the developer community"
-              ],
-              "answer": "It's easy to use"
-            },
-            {
-              "question": "What is the purpose of the state hook in React?",
-              "options": [
-                "To manage the state of a component",
-                "To handle events in a component",
-                "To create reusable components",
-                "To style components"
-              ],
-              "answer": "To manage the state of a component"
-            },
-            {
-              "question": "What is the name of the library that provides server-side rendering for React applications?",
-              "options": [
-                "Next",
-                "Gatsby",
-                "React",
-                "Spring"
-              ],
-              "answer": "Next"
-            },
-            {
-              "question": "What is the name of the library that provides animation for React applications?",
-              "options": [
-                "Spring",
-                "Formic",
-                "Lux",
-                "Recoil"
-              ],
-              "answer": "Spring"
-            }
-          ]);
-        setLoading(false);
-        return;
-      }
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/generate?url=${url}`, { method: "GET", });
-      const data: { audio_url: string } = await response.json();
-      // console.log(data.audio_url);
-      // console.log(process.env.CLOUDFLARE_WORKERS_URL)
-      const res = await fetch(`${process.env.NEXT_PUBLIC_CLOUDFLARE_WORKERS_URL}`, {
-        // const res = await fetch(`${process.env.CLOUDFLARE_WORKERS_URL}`, {
-        // const res = await fetch(`https://whisper.test.workers.dev`, {
-        method: "POST",
-        // headers: {
-        //   'Content-Type': 'application/json'
-        // },
-        body: JSON.stringify({
-          audio_url: data.audio_url
-        })
-      })
-      // console.log(res);
-      const ai_res = await res.text();
-      // console.log(ai_res);
-      const parsed_ai_res = JSON.parse(ai_res);
-      // return NextResponse.json(parsed_ai_res)
-      setSummary(parsed_ai_res.output.summary);
-      setQuiz(parsed_ai_res.output.quiz)
-      // console.log(summary);
-      // console.log(quiz);
+    if (url == 'https://www.youtube.com/watch?v=Tn6-PIqc4UM') {
+      setSummary("React is a JavaScript library for building user interfaces that was developed at Facebook and released in 2013. It's a simple and easy-to-use library that allows developers to build components that represent logical reusable parts of the UI. React uses a special syntax called JSX to combine JavaScript with HTML markup, and provides a variety of hooks to handle common use cases. The library doesn't care about routing, state management, animation, or other concerns, instead letting the open-source community evolve them naturally. React is a popular choice among front-end developers due to its ease of use and the vast ecosystem of supporting libraries. Knowing React is one of the most in-demand skills for front-end developers today.");
+      setQuiz(
+        [
+          {
+            "question": "What is React?",
+            "options": [
+              "A JavaScript library for building user interfaces",
+              "A framework for building web applications",
+              "A tool for creating mobile apps",
+              "A library for building desktop applications"
+            ],
+            "answer": "A JavaScript library for building user interfaces"
+          },
+          {
+            "question": "What is the main advantage of using React?",
+            "options": [
+              "It's easy to use",
+              "It's fast and efficient",
+              "It's highly customizable",
+              "It's widely adopted by the developer community"
+            ],
+            "answer": "It's easy to use"
+          },
+          {
+            "question": "What is the purpose of the state hook in React?",
+            "options": [
+              "To manage the state of a component",
+              "To handle events in a component",
+              "To create reusable components",
+              "To style components"
+            ],
+            "answer": "To manage the state of a component"
+          },
+          {
+            "question": "What is the name of the library that provides server-side rendering for React applications?",
+            "options": [
+              "Next",
+              "Gatsby",
+              "React",
+              "Spring"
+            ],
+            "answer": "Next"
+          },
+          {
+            "question": "What is the name of the library that provides animation for React applications?",
+            "options": [
+              "Spring",
+              "Formic",
+              "Lux",
+              "Recoil"
+            ],
+            "answer": "Spring"
+          }
+        ]);
       setLoading(false);
+      return;
     }
-    fetchData();
+    const fetchTranscript = async () => {
+      const newresponse = await fetch(`${process.env.NEXT_PUBLIC_CLOUDFLARE_WORKERS_URL}/v2`,
+        {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            youtube_url: url
+          })
+        });
+      const ai_res = await newresponse.json();
+      console.log(ai_res);
+      setSummary(ai_res.output.summary);
+      setQuiz(ai_res.output.quiz)
+      setLoading(false);
+
+    }
+    fetchTranscript();
   }, [url]);
 
   return (
