@@ -28,57 +28,57 @@ function trimJSON(inputString: string) {
   return jsonStringMatch ? jsonStringMatch[0] : null;
 }
 
-app.post('/', async (c) => {
-  const body = await c.req.json();
-  const ai = c.env.AI;
-
-
-  //transcription
-  const audioResponse = await fetch(body.audio_url);
-  const blob = await audioResponse.arrayBuffer();
-  const inputs = {
-    audio: [...new Uint8Array(blob)]
-  };
-  const aiResponse = await ai.run('@cf/openai/whisper', inputs);
-  if (aiResponse.text == undefined || aiResponse.text == "") {
-    c.json({ message: "transcription not found" });
-    return c.status(400);
-  }
-  const transcription = aiResponse.text;
-  console.log("transcription: ", transcription);
-
-  //summary and quiz
-  const messages = [
-    {
-      role: "system", content: `You are system which generates a quiz of 5 questions and a brief summary from the context given by the user in following JSON format strictly.
-Your output should be always easily parsed to JSON as if you can only talk in JSON.
-The JSON format you should strictly follow:
- {
-        "summary": "SUMMARY_HERE",
-        "quiz": [
-            {
-                "question": "Your question here",
-                "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-                "answer": "Correct option"
-            },
-            ...
-        ]
-    }`},
-    {
-      role: "user",
-      content: `Context: ${transcription}`
-    }
-  ]
-
-  const aiJson = await ai.run('@cf/meta/llama-2-7b-chat-fp16', {
-    max_tokens: 512,
-    messages
-  });
-  console.log(aiJson.response);
-  const output = JSON.parse(aiJson.response);
-
-  return c.json({ output: output });
-})
+// app.post('/', async (c) => {
+//   const body = await c.req.json();
+//   const ai = c.env.AI;
+//
+//
+//   //transcription
+//   const audioResponse = await fetch(body.audio_url);
+//   const blob = await audioResponse.arrayBuffer();
+//   const inputs = {
+//     audio: [...new Uint8Array(blob)]
+//   };
+//   const aiResponse = await ai.run('@cf/openai/whisper', inputs);
+//   if (aiResponse.text == undefined || aiResponse.text == "") {
+//     c.json({ message: "transcription not found" });
+//     return c.status(400);
+//   }
+//   const transcription = aiResponse.text;
+//   console.log("transcription: ", transcription);
+//
+//   //summary and quiz
+//   const messages = [
+//     {
+//       role: "system", content: `You are system which generates a quiz of 5 questions and a brief summary from the context given by the user in following JSON format strictly.
+// Your output should be always easily parsed to JSON as if you can only talk in JSON.
+// The JSON format you should strictly follow:
+//  {
+//         "summary": "SUMMARY_HERE",
+//         "quiz": [
+//             {
+//                 "question": "Your question here",
+//                 "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+//                 "answer": "Correct option"
+//             },
+//             ...
+//         ]
+//     }`},
+//     {
+//       role: "user",
+//       content: `Context: ${transcription}`
+//     }
+//   ]
+//
+//   const aiJson = await ai.run('@cf/meta/llama-2-7b-chat-fp16', {
+//     max_tokens: 512,
+//     messages
+//   });
+//   console.log(aiJson.response);
+//   const output = JSON.parse(aiJson.response);
+//
+//   return c.json({ output: output });
+// })
 
 const decodeHTMLEntities = (text: string) => {
   const entities: { [key: string]: string } = {
